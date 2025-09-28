@@ -1,9 +1,8 @@
-# Plex Media Server  Module
-[![Build Status](https://app.travis-ci.com/jaysphoto/plex-media-server.svg?branch=master)](https://app.travis-ci.com/jaysphoto/plex-media-server)
+# Plex Media Server Module
 
 ## Overview
 
-This will setup and install Plex Media server.
+This module will setup and install Plex Media server.
 
 ## Capabilities
 
@@ -16,10 +15,14 @@ Requires:
 - *nix operating system
 
 ## Plex Media Server Parameters
+
+Package installation options:
+* `plex_install_latest`<br />
+  Default: false<br />
+  Attempts to fetch the latest package available from plex repository
+
 See Plex documentation for variable definitions.
 
-* `plex_install_latest`<br />
-  Default: false
 * `plex_user`<br />
   Default: plex
 * `plex_media_server_home`<br />

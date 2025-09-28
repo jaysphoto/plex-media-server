@@ -13,6 +13,7 @@ Puppet::Functions.create_function(:latest_version) do
 
     case res
     when Net::HTTPSuccess then
+      nil
     when Net::HTTPRedirection then
       uri = URI.parse(res['location'])
     else

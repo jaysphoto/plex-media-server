@@ -1,10 +1,14 @@
-class plexmediaserver::linux ($source, $package){
+# Linux package installer class
+#
+# @param source URL for the Linux package
+# @param package Filename of the Linux package
+class plexmediaserver::linux (String $source, String $package) {
   $service_provider  = 'systemd'
   $package_target    = "/tmp/${package}"
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     'Ubuntu': {
-      $plex_ubuntu_deps = [ 'libavahi-core7', 'libdaemon0', 'avahi-daemon' ]
+      $plex_ubuntu_deps = ['libavahi-core7', 'libdaemon0', 'avahi-daemon']
       $plex_config      = '/etc/default/plexmediaserver'
     }
     'Fedora': {
@@ -13,7 +17,7 @@ class plexmediaserver::linux ($source, $package){
     'CentOS': {
       $plex_config   = '/etc/sysconfig/PlexMediaServer'
     }
-    default: { fail("${::operatingsystem} is not supported by this module.") }
+    default: { fail("${facts['os']['name']} is not supported by this module.") }
   }
 
   staging::file { $package:
@@ -25,7 +29,7 @@ class plexmediaserver::linux ($source, $package){
   Package {
     ensure => installed,
   }
-  if $::operatingsystem == 'Ubuntu' {
+  if $facts['os']['name'] == 'Ubuntu' {
     package { 'libavahi-common-data': }
     -> package { 'libavahi-common3': }
     -> package { 'avahi-utils': }
