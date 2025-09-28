@@ -1,6 +1,6 @@
 {
   "name": "jaysphoto-plexmediaserver",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": "WhatsARanjit",
   "summary": "This module installs and manages Plex Media Server",
   "license": "Apache 2.0",
