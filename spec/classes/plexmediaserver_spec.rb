@@ -1,10 +1,13 @@
 require 'spec_helper'
+require 'rspec-puppet-utils'
 
 describe 'plexmediaserver', :type => :class do
+  let(:plex_latest_pkg) { 'plexmediaserver_1.42.2.10156-f737b826c_amd64.deb' }
   let :pre_condition do
     [
-      (MockResource.new 'staging::deploy', { :type => :define, :params => { :source => nil, :target => nil } }).render,
-      (MockResource.new 'staging::file',   { :type => :define, :params => { :source => nil, :target => nil } }).render,
+      'define staging::deploy ( $source = nil, $target = nil ) {}',
+      'define staging::file ( $source = nil, $target = nil ) {}',
+      "function latest_version( String \$distro ) { { 'url' => 'uri_split[0]', 'pkg' => '#{plex_latest_pkg}' } }"
     ]
   end
 
@@ -125,6 +128,9 @@ describe 'plexmediaserver', :type => :class do
         :plex_install_latest => true
       }
     end
-    it { should contain_staging__file('plexmediaserver_latest_version-hash_amd64.deb') }
+
+    it {
+      should contain_staging__file(plex_latest_pkg)
+    }
   end
 end
