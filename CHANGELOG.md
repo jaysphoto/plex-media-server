@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## Release 2.4.1
+Project layout updates and Puppet 8.x support
+
+- Added puppet v8.x.x series to metadata.json
+- Minor project layout fixes
 
 ## Release 2.4.0
 Updated Module to latest PDK and -standards 
