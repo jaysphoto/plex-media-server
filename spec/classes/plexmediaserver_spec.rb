@@ -14,9 +14,11 @@ describe 'plexmediaserver', type: :class do
   context 'on all operating systems' do
     let(:facts) do
       {
-        operatingsystem: 'CentOS',
-        osfamily: 'Redhat',
-        architecture: 'x86_64'
+        os: {
+          name: 'CentOS',
+          family: 'Redhat',
+          architecture: 'x86_64'
+        }
       }
     end
 
@@ -28,9 +30,11 @@ describe 'plexmediaserver', type: :class do
   context 'without custom parameters' do
     let(:facts) do
       {
-        operatingsystem: 'CentOS',
-        osfamily: 'Redhat',
-        architecture: 'x86_64'
+        os: {
+          name: 'CentOS',
+          family: 'Redhat',
+          architecture: 'x86_64'
+        }
       }
     end
 
@@ -41,9 +45,11 @@ describe 'plexmediaserver', type: :class do
   context 'with custom parameters' do
     let :facts do
       {
-        operatingsystem: 'CentOS',
-        osfamily: 'Redhat',
-        architecture: 'x86_64'
+        os: {
+          name: 'CentOS',
+          family: 'Redhat',
+          architecture: 'x86_64'
+        }
       }
     end
     let :params do
@@ -60,9 +66,11 @@ describe 'plexmediaserver', type: :class do
   context 'on a CentOS 32-bit system' do
     let :facts do
       {
-        operatingsystem: 'CentOS',
-        osfamily: 'Redhat',
-        architecture: 'i386'
+        os: {
+          name: 'CentOS',
+          family: 'Redhat',
+          architecture: 'i386'
+        }
       }
     end
 
@@ -72,9 +80,11 @@ describe 'plexmediaserver', type: :class do
   context 'on a CentOS 64-bit system' do
     let :facts do
       {
-        operatingsystem: 'CentOS',
-        osfamily: 'Redhat',
-        architecture: 'x86_64'
+        os: {
+          name: 'CentOS',
+          family: 'Redhat',
+          architecture: 'x86_64'
+        }
       }
     end
 
@@ -84,9 +94,11 @@ describe 'plexmediaserver', type: :class do
   context 'on a Darwin system' do
     let :facts do
       {
-        operatingsystem: 'Darwin',
-        osfamily: 'OSX',
-        architecture: 'x86_64'
+        os: {
+          name: 'Darwin',
+          family: 'OSX',
+          architecture: 'x86_64'
+        }
       }
     end
 
@@ -96,9 +108,11 @@ describe 'plexmediaserver', type: :class do
   context 'on a Ubuntu 32-bit system' do
     let :facts do
       {
-        operatingsystem: 'Ubuntu',
-        osfamily: 'Debian',
-        architecture: 'i386',
+        os: {
+          name: 'Ubuntu',
+          family: 'Debian',
+          architecture: 'i386',
+        }
       }
     end
 
@@ -108,9 +122,11 @@ describe 'plexmediaserver', type: :class do
   context 'on a Ubuntu 64-bit system' do
     let :facts do
       {
-        operatingsystem: 'Ubuntu',
-        osfamily: 'Debian',
-        architecture: 'amd64',
+        os: {
+          name: 'Ubuntu',
+          family: 'Debian',
+          architecture: 'amd64',
+        }
       }
     end
 
@@ -120,9 +136,11 @@ describe 'plexmediaserver', type: :class do
   context 'latest version on a Ubuntu 64-bit system' do
     let :facts do
       {
-        operatingsystem: 'Ubuntu',
-        osfamily: 'Debian',
-        architecture: 'amd64',
+        os: {
+          name: 'Ubuntu',
+          family: 'Debian',
+          architecture: 'amd64',
+        }
       }
     end
     let :params do
