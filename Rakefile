@@ -16,3 +16,4 @@ PuppetLint.configuration.send('disable_single_quote_string_with_variables')
 PuppetLint.configuration.fail_on_warnings = true
 PuppetLint.configuration.ignore_paths = [".vendor/**/*.pp", ".bundle/**/*.pp", "pkg/**/*.pp", "spec/**/*.pp", "tests/**/*.pp", "types/**/*.pp", "vendor/**/*.pp"]
 
+task :test => [:lint, :validate, :check]
